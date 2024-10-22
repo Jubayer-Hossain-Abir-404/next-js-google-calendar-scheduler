@@ -4,14 +4,14 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 export default function HomePage() {
-  const {userId} = auth()
+  const {userId} = auth();
   if (userId) {
     redirect("/events");
   }
   return (
     <div className="text-center container my-4 mx-auto">
       <h1 className="text-3xl mb-4">
-       Next Google Calendar
+        Next Google Calendar
       </h1>
       <div className="flex gap-2 justify-center">
         <Button asChild>
