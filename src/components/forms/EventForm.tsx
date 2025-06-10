@@ -5,6 +5,8 @@ import { eventFormSchema } from "@/schema/events"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 
 export function EventForm() {
@@ -21,7 +23,8 @@ export function EventForm() {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
+            <form onSubmit={form.handleSubmit(onSubmit)} 
+            className="flex gap-6 flex-col">
                 <FormField 
                 control={form.control}
                 name="name"
@@ -39,6 +42,16 @@ export function EventForm() {
                     </FormItem>
                 )}
                 />
+
+                <div className="flex gap-2 justify-end">
+                    <Button type="button" asChild variant="outline">
+                        <Link href="/events">Cancel</Link>
+                    </Button>
+
+                    <Button type="submit">
+                        Save
+                    </Button>
+                </div>
             </form>
         </Form>
     )
